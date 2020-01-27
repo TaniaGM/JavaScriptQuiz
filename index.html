@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz Game</title>
+
+  <!-- Added link to the jQuery Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Added a link to Bootstrap-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body id="mainbody" class="body">
+
+<div class="container container-fluid">
+  
+  <div id="rules">
+    <p>The quiz will contain 5 questions.</p>
+    <P>You have 35 seconds to answer 5 questions, but beware... 
+      if you answer incorrectly 10 seconds will be deducted from the time remaining.</P>
+    <p>The quiz will finish after you answer 5 questions or run out of time.</p>
+    <p>Your score will equal the time remaining when you finish the quiz.  </p>
+    <p>Can you beat the high score?</p>
+  </div>
+
+  <div id="score" class="score hide">
+    <h2 id="scoreResult">0</h2>
+    <P>Congratulations, you finished the quiz.</P>
+    <p>Enter your name to join the leaderboard.</p>
+    <form><input type='text' id="Name" value="Name" class="name"></form><br>
+    <button class="btn" id="submitName">Submit Name</button>
+  </div>
+ 
+      <div class="row hide" id="leaderboard">
+        <div class="col"><h4>First Place</h4></div>
+        <div class="col" id="Score1"></div>
+        <div class="col" id="Name1"></div>
+      </div>
+  
+      <div class="row hide" id="leaderboard2">
+        <div class="col"><h4>Second Place</h4></div>
+        <div class="col" id="Score2"></div>
+        <div class="col" id="Name2"></div>
+      </div>
+     
+      <div class="row hide" id="leaderboard3">
+        <div class="col"><h4>Third Place</h4></div>
+        <div class="col" id="Score3"><h3></h3></div>
+        <div class="col" id="Name3"><h3></h3></div>
+      </div>
+
+      <div class="row hide" id="leaderboard4">
+        <div class="col"><h4>Fourth Place</h4></div>
+        <div class="col" id="Score4"><h3></h3></div>
+        <div class="col" id="Name4"><h3></h3></div>
+      </div>
+
+      <div class="row hide" id="leaderboard5">
+        <div class="col"><h4>Fifth Place</h4></div>
+        <div class="col" id="Score5"><h3></h3></div>
+        <div class="col" id="Name5"><h3></h3></div>
+      </div>
+       
+  
+
+  <div>
+    <button class="btn hide" id="viewLeaderboard">View Leaderboard</button>
+  </div>
+
+  <div>
+    <button class="btn hide" id="resetLeaderboard">Reset Leaderboard</button>
+  </div>
+    
+    
+  <div id="submitContainer" class="hide">
+    <form><input type='text' id="Name" value="Name" class="name"></form><br>
+    <button class="btn" id="submitName">Submit Name</button>
+  </div>
+  
+  <div id="timeout" class="timeout hide">
+    <h2>Time's up!</h2>
+    <P>You failed to finish the quiz on time.</P>
+    <p>Please try again.</p>
+  </div>
+  <div id="questionContainer" class="hide">
+    <div id="question">Question 1</div>
+    <div id="answerButtons" class="btnGrid">
+      <button class="btn">Answer 1</button><br>
+      <button class="btn">Answer 2</button><br>
+      <button class="btn">Answer 3</button><br>
+      <button class="btn">Answer 4</button><br>
+    </div>
+  </div>
+  
+  <div>
+    <br>
+    <span id="quizTimeLeft" class="timer hide">
+      insert timer here
+    </span>
+  </div>
+
+  <div class="controls">
+      <button id="startButton" class="startButton btn">Start</button>
+      <button id="nextButton" class="nextButton btn hide">Next</button>
+  </div>
+
+
+</div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
