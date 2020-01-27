@@ -102,39 +102,28 @@ function resetLeaderboard(){
   viewLeaderboard()
 }
 
-
-
-
-
 startButton.addEventListener('click', startGame)
-
-
 
 submitNameEL.addEventListener('click', recordScore)
 
 function recordScore(){
  
   currentName = document.getElementById("Name").value
-  //console.log(currentName)
-  //console.log(totalSeconds)
 
   highScores.push({"Score": totalSeconds, "Name": currentName}) 
   sortedHighScoreList = highScores.sort ( (a,b) => b.Score - a.Score)  
   sortedHighScoreList.splice(maxHighScores)
 
-  console.log(sortedHighScoreList)
-
   submitNameEL.classList.add('hide')
- // document.getElementById("Score1").innerHTML = sortedHighScoreList.
+ 
   resetLeaderboardButtonEL.classList.remove('hide')
   viewLeaderboardButtonEL.classList.remove('hide')
 
 }
 
-
 function startGame(){
   
-  // console.log('started');
+ 
   resetLeaderboardButtonEL.classList.add('hide')
   viewLeaderboardEL.classList.add('hide')
   viewLeaderboardEL2.classList.add('hide')
@@ -148,7 +137,7 @@ function startGame(){
   timeoutEl.classList.add('hide')
   scoreEL.classList.add('hide')
   totalSeconds = 30 
- // console.log(timer)
+ 
   rulesContainerElement.classList.add('hide')
   questionContainerElement.classList.remove('hide')
   quizTimeLeftEl.classList.remove('hide')
@@ -156,24 +145,14 @@ function startGame(){
   shuffledQuestions = questions.sort(() => Math.random() - .5)
   update = setInterval("checkTime()", 1000)
   checkTime()
- // console.log(shuffledQuestions)
+
   setNextQuestion()
 }
-
-/*
-totalSeconds = setInterval(myTimer ,1000);
-function myTimer() {
-  document.getElementById("quizTimeLeft").innerHTML = 'Time remaining: ' + totalSeconds;
-  totalSeconds--;
-}
-*/
-
 
 function checkTime(){  
   document.getElementById("quizTimeLeft").innerHTML = 'Time remaining: ' + totalSeconds;
   if (totalSeconds <=0){
     myStopFunction()
-    //alert("time's up")
   }
   else{
     totalSeconds-- 
@@ -213,9 +192,9 @@ function resetState(){
 
 function selectAnswer(e){
   const selectedButton = e.target
- // console.log(selectedButton)
+
   const correct = selectedButton.dataset.correct
- // console.log(correct)
+ 
   if (correct !== 'true'){
     totalSeconds = totalSeconds - 5
     mainbodyEL.classList.remove('bodyright')
@@ -226,8 +205,6 @@ function selectAnswer(e){
     mainbodyEL.classList.add('bodyright')
   }
 
- // console.log("timer: " + totalSeconds)
-
   if(totalSeconds <= 0){
     mainbodyEL.classList.remove('bodyright')
     mainbodyEL.classList.add('bodywrong')
@@ -237,7 +214,7 @@ function selectAnswer(e){
     scoreEL.classList.add('hide')
     finalScore = totalSeconds
     myStopFunction()
-    //console.log('they ran out of time')
+   
     startButton.innerText = 'Restart Quiz!'
     startButton.classList.remove('hide')
   }
@@ -245,9 +222,7 @@ function selectAnswer(e){
   if (shuffledQuestions.length > currentQuestionIndex + 1){
     currentQuestionIndex++
     setNextQuestion()
-  //  console.log(shuffledQuestions.length)
-  //  console.log(currentQuestionIndex)
-  //  console.log(' total seconds in set question function: ' + totalSeconds)
+  
   }
 
   else {
@@ -259,7 +234,7 @@ function selectAnswer(e){
       submitNameEL.classList.remove('hide')
       finalScore = totalSeconds
       myStopFunction()
-    //  console.log('Final score: ' + finalScore)
+    
       startButton.innerText = 'Restart Quiz!'
       startButton.classList.remove('hide')
     }
@@ -272,7 +247,7 @@ function selectAnswer(e){
       scoreEL.classList.add('hide')
       finalScore = totalSeconds
       myStopFunction()
-    //  console.log('they ran out of time')
+    
       startButton.innerText = 'Restart Quiz!'
       startButton.classList.remove('hide')
     }
@@ -284,10 +259,10 @@ const questions = [
     {
         question: 'How can you add a comment in JavaScript?',
         answers: [
-            { text: "This is a comment", correct: false },
+            { text: "//This is a comment", correct: true },
             { text: "<!--This is a comment-->", correct: false },
             { text: "*/This is a comment/*", correct: false },
-            { text: "//This is a comment", correct: true }
+            { text: "This is a comment", correct: false }
         ]
     },
 
